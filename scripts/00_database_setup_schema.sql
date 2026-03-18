@@ -1,12 +1,15 @@
 -- FILE: 00_database_setup.sql
 -- PROJECT: SuperStore Sales Analytics with SQL and Python
--- 
--- This file documents the star schema built from the raw SuperStore CSV in the Jupyter notebook 01_load_data.ipynb
 
+-- Author: Faris Beg 
+-- Year: 2026
+
+-- This file documents the star schema built from the raw SuperStore CSV in the Jupyter notebook 01_load_data.ipynb
 -- Following is the Schema structure:
---   dim_customers  ──┐
---                    ├──▶ fact_orders ◀── dim_products
---   dim_locations  ──┘
+
+--   dim_customers  ──
+--                    ──> fact_orders <── dim_products
+--   dim_locations  ──
 
 
 -- Dimension table: customers

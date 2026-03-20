@@ -1,12 +1,13 @@
 -- PROJECT: Sales Performance & Profitability Analysis
 -- FILE: 02_exploratory_analysis.sql
--- OBJECT: Initial exploration of the SuperStore database.
--- This file is aimed at understanding the shape, range and quality of data while demonstrating basic SQL queries
--- such as SELECT, COUNT, DISTINCT, GROUP BY, JOIN etc
+-- OBJECT: Initial exploration of the SuperStore database. Understanding the shape, range, scale of the data 
+-- while demonstrating basic SQL queries skills (SELECT, COUNT, ROUND, SUM, DISTINCT) alongside GROUP BY, JOIN etc.
+
+-- Format: Business Question + SQL query + Relevant Insights
 -- AUTHOR: Faris Beg 
 
 ---------------------------------------------------------------------------------------------------------------------------
--- QUESTION: What is the date range of the sales data?
+-- QUESTION: What is the DATE RANGE of the sales data?
 -- SKILLS:   SELECT, MIN, MAX, aggregate functions
 
 SELECT 
@@ -19,7 +20,7 @@ from fact_orders;
 -- Insight: Our time-based analysis goes between January 2011 and Septemebr 2014 (not December 2014)
 
 
--- QUESTION: What is the overall scale of the business? (Metrics on orders, customers, products, profit etc.)
+-- QUESTION: What is the OVERALL SCALE of the business? (Metrics on orders, customers, products, profit etc.)
 -- SKILLS:   COUNT DISTINCT, SUM, ROUND, aggregate functions
 
 %%sql
@@ -38,7 +39,7 @@ FROM fact_orders;
 -- Note: (profit/sales) * 100 --> profit margin percentage.  Percentage of total profit over all the sales. 
 
 
--- QUESTION: Which regions generate the most revenue and profit?
+-- QUESTION: Which REGIONS generate the most revenue and profit?
 -- SKILLS:   GROUP BY, ORDER BY, SUM, ROUND, JOIN
 
 SELECT 

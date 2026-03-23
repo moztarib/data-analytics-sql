@@ -1,10 +1,10 @@
--- PROJECT: Sales Performance & Profitability Analysis
+-- PROJECT: Sales & Profitability Analysis with SQL and Python 
 -- FILE: 03_time_series_analysis.sql
--- OBJECT: Time-series analysis of revenue and profitability across years and months, demonstrating datetime column extraction (STRFTIME), 
--- aggregates (SUM, COUNT DISTINCT), and GROUP BY query skills. The queries identify peak trading periods, measure year-over-year, 
--- month-over-month, and each month of the year-over-year business growth.
+-- OBJECT: Time-series analysis of revenue and profitability across years and months, demonstrating datetime column 
+--         extraction (STRFTIME), aggregates (SUM, COUNT DISTINCT), and GROUP BY query skills. The queries identify peak 
+--         trading periods, measure year-over-year, month-over-month, and each month of the year-over-year business growth.
 
--- Format: Business Question + SQL query + Relevant Insights
+-- Format: Question + SQL query + Business Insights
 -- AUTHOR: Faris Beg 
 
 ---------------------------------------------------------------------------------------------------------------------------------
@@ -30,8 +30,8 @@ GROUP BY order_year
 ORDER BY order_year asc;
 
 -- Relevant Insights:
--- 2014 data only covers (Jan-Sep, 2014) yet already outperforms all previous years
--- meaning true 2014 annual figures would be significantly higher.
+-- 2014 data covers (Jan - December, 2014) and outperforms all previous years
+-- Making 2014 annual figures significantly higher.
 
 
 -- QUESTION: Which months consistently generate the most revenue\
@@ -70,7 +70,7 @@ strftime('%Y', order_date) AS year_of_order
 from fact_orders
 
 WHERE month_of_order AND year_of_order IS NOT NULL
-GROUP BY month_of_order, year_of_order
+GROUP BY year_of_order, month_of_order
 ORDER BY year_of_order ASC, month_of_order ASC; 
 
 -- Relevant Insight: 

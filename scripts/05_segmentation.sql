@@ -1,8 +1,8 @@
 -- PROJECT: Sales & Profitability Analysis with SQL and Python 
--- FILE: 04_cumulative_analysis.sql
--- OBJECT: -- PURPOSE:  Segment customers and products into meaningful business categories
---           using CASE WHEN logic. Identifies high value customers, top performing
---           products and loss-making items draining company profitability.
+-- FILE: 05_segmentation.sql
+-- OBJECT:  Segment customers and products into meaningful business categories
+--          using CASE WHEN logic. To Identify high value customers, top performing
+--          products and loss-making items draining company profitability.
 
 -- Format: Question + SQL query + Relevant Business Insights
 -- AUTHOR: Faris Beg 
@@ -13,15 +13,16 @@
 -- SKILLS:   CASE WHEN, GROUP BY, JOIN, SUM, ORDER BY
 
 SELECT
-    p.product_name,
-    p.category,
-    ROUND(SUM(f.profit), 2) AS total_profit,
+p.product_name,
+p.category,
+ROUND(SUM(f.profit), 2) AS total_profit,
     CASE
         WHEN SUM(f.profit) > 5000  THEN 'High Performer'
         WHEN SUM(f.profit) > 1000  THEN 'Mid Performer'
         WHEN SUM(f.profit) > 0     THEN 'Low Performer'
         ELSE 'Losing Money'
     END AS performance_segment
+
 FROM fact_orders f
 JOIN dim_products p ON f.product_id = p.product_id
 GROUP BY p.product_name, p.category
@@ -31,21 +32,23 @@ ORDER BY total_profit DESC;
 -- SKILLS:   CASE WHEN, subquery, GROUP BY, COUNT
 
 SELECT
-    performance_segment,
-    COUNT(*) AS number_of_products
-FROM (
-    SELECT
-        p.product_name,
-        ROUND(SUM(f.profit), 2) AS total_profit,
-        CASE
-            WHEN SUM(f.profit) > 5000 THEN 'High Performer'
-            WHEN SUM(f.profit) > 1000 THEN 'Mid Performer'
-            WHEN SUM(f.profit) > 0    THEN 'Low Performer'
-            ELSE 'Losing Money'
+performance_segment,
+COUNT(*) AS number_of_products
+FROM 
+(
+SELECT
+    p.product_name,
+    ROUND(SUM(f.profit), 2) AS total_profit,
+    CASE
+        WHEN SUM(f.profit) > 5000 THEN 'High Performer'
+        WHEN SUM(f.profit) > 1000 THEN 'Mid Performer'
+        WHEN SUM(f.profit) > 0    THEN 'Low Performer'
+        ELSE 'Losing Money'
         END AS performance_segment
-    FROM fact_orders f
-    JOIN dim_products p ON f.product_id = p.product_id
-    GROUP BY p.product_name
+
+FROM fact_orders f
+JOIN dim_products p ON f.product_id = p.product_id
+GROUP BY p.product_name
 ) AS product_segments
 GROUP BY performance_segment
 ORDER BY number_of_products DESC;
@@ -82,18 +85,18 @@ SELECT
     performance_segment,
     COUNT(*) AS number_of_customers
 FROM (
-    SELECT
-        c.customer_name,
-        ROUND(SUM(f.sales), 2) AS total_revenue,
-            CASE
-                WHEN SUM(f.sales) > 10000 THEN 'VIP'
-                WHEN SUM(f.sales) > 5000 THEN 'Loyal'
-                WHEN SUM(f.sales) > 1000 THEN 'Regular'
-                ELSE 'Occasional'
-        END AS performance_segment
-    FROM fact_orders f
-    JOIN dim_customers c ON f.customer_name = c.customer_name
-    GROUP BY c.customer_name
+SELECT
+    c.customer_name,
+    ROUND(SUM(f.sales), 2) AS total_revenue,
+        CASE
+            WHEN SUM(f.sales) > 10000 THEN 'VIP'
+            WHEN SUM(f.sales) > 5000 THEN 'Loyal'
+            WHEN SUM(f.sales) > 1000 THEN 'Regular'
+            ELSE 'Occasional'
+    END AS performance_segment
+FROM fact_orders f
+JOIN dim_customers c ON f.customer_name = c.customer_name
+GROUP BY c.customer_name
 ) AS customer_segments
 GROUP BY performance_segment
 ORDER BY number_of_customers DESC;

@@ -1,9 +1,8 @@
 -- PROJECT: Sales & Profitability Analysis with SQL and Python 
 -- FILE: 06_advanced_analytics.sql
 -- OBJECT: Advanced analysis using CTEs, window ranking functions and LAG
---           to answer deeper business questions. We will identify top ranked products
---           and regions, measures year over year profit growth, and surfaces
---           which categories are quietly losing money despite high sales volume..
+--           to answer deeper business questions. We will identify top ranked products and regions, measure year over year (yoy) profit growth,
+--           and investigate which categories are quietly losing money despite high sales volume.
 
 -- Format: Question + SQL query + Relevant Business Insights
 -- AUTHOR: Faris Beg 
@@ -121,3 +120,8 @@ SELECT
     END AS status
 FROM sub_category_performance
 ORDER BY total_profit ASC;
+
+-- INSIGHT: Tables is the only loss-making sub-category, losing $64,083
+--          despite generating $289,686 in sales revenue.
+--          Heavy discounting on furniture likely causes this margin destruction.
+--          All other 16 sub-categories are profitable.

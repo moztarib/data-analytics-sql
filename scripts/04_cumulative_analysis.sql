@@ -1,8 +1,8 @@
 -- PROJECT: Sales & Profitability Analysis with SQL and Python 
 -- FILE: 04_cumulative_analysis.sql
--- OBJECT: 
+-- OBJECT: to demnstrate the use of Cumulative Functions such as OVER and PARTITION BY as WINDOW FUNCTIONS. 
 
--- Format: Business Question + SQL query + Relevant Insights
+-- Format: Question + SQL query + Relevant Business Insights
 -- AUTHOR: Faris Beg 
 
 ------------------------------------------------------------------------------------------------------------------------------------

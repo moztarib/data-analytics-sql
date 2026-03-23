@@ -1,9 +1,9 @@
--- PROJECT: Sales Performance & Profitability Analysis
+-- PROJECT: Sales & Profitability Analysis with SQL and Python 
 -- FILE: 02_exploratory_analysis.sql
 -- OBJECT: Initial exploration of the SuperStore database. Understanding the shape, range, scale of the data 
--- while demonstrating basic SQL queries skills (SELECT, COUNT, ROUND, SUM, DISTINCT) alongside GROUP BY, JOIN etc.
+--         while demonstrating basic SQL queries skills (SELECT, COUNT, ROUND, SUM, DISTINCT) alongside GROUP BY, JOIN etc.
 
--- Format: Business Question + SQL query + Relevant Insights
+-- Format: Question + SQL query + Business Insights
 -- AUTHOR: Faris Beg 
 
 ---------------------------------------------------------------------------------------------------------------------------
@@ -16,14 +16,11 @@ SELECT
     COUNT(DISTINCT (year)) AS YEARS_PASSED 
 
 from fact_orders;
-
--- Insight: Our time-based analysis goes between January 2011 and Septemebr 2014 (not December 2014)
+-- Insight: Our time-based analysis goes between January 2011 and December 2014.
 
 
 -- QUESTION: What is the OVERALL SCALE of the business? (Metrics on orders, customers, products, profit etc.)
 -- SKILLS:   COUNT DISTINCT, SUM, ROUND, aggregate functions
-
-%%sql
 
 SELECT 
     COUNT (order_id) AS total_orders_placed, 
@@ -35,8 +32,6 @@ SELECT
     ROUND((SUM(profit)/SUM (sales))*100, 2) AS "%_profit_margin"
 
 FROM fact_orders;
-
--- Note: (profit/sales) * 100 --> profit margin percentage.  Percentage of total profit over all the sales. 
 
 
 -- QUESTION: Which REGIONS generate the most revenue and profit?
@@ -77,3 +72,6 @@ ORDER BY total_profit desc;
 -- Insight: 
 -- Furniture generates the second highest revenue but has the worst profit margin (11.92%) by far.
 -- Technology leads in profit with only 25% margin — most efficient category. 
+
+
+

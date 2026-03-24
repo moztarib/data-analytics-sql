@@ -1,8 +1,7 @@
 -- PROJECT: Sales & Profitability Analysis with SQL and Python 
 -- FILE: 05_segmentation.sql
 -- OBJECT:  Segment customers and products into meaningful business categories
---          using CASE WHEN logic. To Identify high value customers, top performing
---          products and loss-making items draining company profitability.
+--          using CASE WHEN logic. To Identify high value customers/products and loss-making items.
 
 -- Format: Question + SQL query + Relevant Business Insights
 -- AUTHOR: Faris Beg 

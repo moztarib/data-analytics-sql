@@ -62,11 +62,11 @@ dim_location  ──┘
 
 ## Technical Skills Demonstrated
 
-- Database design — star schema normalization with fact and dimension tables
-- Customer and product segmentation — CASE WHEN classification logic
-- Advanced SQL — CTEs, subqueries, LAG(), RANK(), DENSE_RANK()
-- Data pipeline development — CSV ingestion, cleaning and database connection/load with pandas
-- Exploratory data analysis (EDA) — profiling scale, range and quality of data
+- Database design: star schema normalization with fact and dimension tables
+- Customer and product segmentation: CASE WHEN classification logic
+- Advanced SQL: CTEs, subqueries, LAG(), RANK(), DENSE_RANK()
+- Data pipeline development: CSV ingestion, cleaning and database connection/load with pandas
+- Exploratory data analysis (EDA): profiling scale, range and quality of data
 
 ## Tools & Technologies
 

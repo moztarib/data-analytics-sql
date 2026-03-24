@@ -105,12 +105,5 @@ data-analytics-sql/
 5. Open any `.sql` file in `scripts/` and copy queries into the notebook 
    using `%%sql` to see results
 
-## Notes
-- We are using SQLite Database so server installation is NOT required
-- All queries written and tested in SQLite
-- Date functions use SQLite syntax `strftime()` 
-  equivalent to `YEAR()` / `MONTH()` in MySQL/PostgreSQL
-
-
 ## Author
 **Faris Beg**, 2026

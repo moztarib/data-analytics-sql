@@ -20,7 +20,7 @@ The central business question driving this analysis:
 
 - **Source:** [Sample SuperStore Dataset — Kaggle](https://www.kaggle.com/datasets/thuandao/superstore-sales-analytics)
 - **Records:** 51,290 order line items
-- **Period:** January 2011 — December 2014
+- **Period:** January 2011 - December 2014
 - **Regions:** 13 global regions
 - **Products:** 10,292 unique products across 3 categories
 - **Customers:** 795 unique customers

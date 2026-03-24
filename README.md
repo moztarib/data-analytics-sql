@@ -53,7 +53,7 @@ dim_location  ──┘
 - **Southeast Asia** has the weakest profit margin despite $532,172 in revenue
 
 ### Product Performance
-- **Tables is the only sub-category under loss** — losing ~$64,000 in profit despite generating $289,686 in sales revenue
+- **Tables is the only sub-category under loss** losing ~$64,000 in profit despite generating $289,686 in sales revenue
 - **674 products actively lose money** which is 7% of the entire product catalogue
 
 ### Customer Insights

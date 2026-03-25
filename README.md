@@ -59,7 +59,8 @@ dim_location
 - We identified Zero occasional customers (<1000 in total sales) which is also suggesting a B2B focused business model.
 ---
 ### Time Series: STRFTIME()
-- Nov, Dec dominate the revenue generation as holiday months. Feb and Jan are weakest which is typical post-holiday retail slowdown.
+- Nov, Dec dominate the revenue generation as holiday months.
+- Feb and Jan are weakest which is typical post-holiday retail slowdown.
 ---
 
 ### Main conclusions:

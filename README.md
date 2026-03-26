@@ -17,10 +17,20 @@
 
 SQL (SQLite), Python, Jupyter Notebook, pandas, SQLAlchemy, ipython-sql, VS Code, Git & GitHub
 
+## Technical Skills Demonstrated
+
+| Skill | Detail |
+|---|---|
+| Database Design | Star schema normalization with fact and dimension tables |
+| Customer & Product Segmentation | CASE WHEN classification logic |
+| Advanced SQL | CTEs, subqueries, LAG(), RANK(), DENSE_RANK() |
+| Data Pipeline Development | CSV ingestion, cleaning and database connection/load with pandas |
+| Exploratory Data Analysis | Profiling scale, range and quality of data |
 
 ## Dataset
 
 - **Source:** [Sample SuperStore Dataset — Kaggle](https://www.kaggle.com/datasets/thuandao/superstore-sales-analytics)
+
 
 ## Database Schema Design
 
@@ -51,7 +61,7 @@ dim_location
 ### Advanced Analytics (CTE, JOIN, RANK(), GROUP BY)
 - Tables is the only sub-category under loss. It is losing ~$64,000 in profit, DESPITE generating a sizeable $289,686 in sales revenue!
 - The Year 2013 came out as the strongest growth year with 32.89% Year-on-Year profit growth, and then suffered a hit reaching back to the levels similar to 2012, in 2014.
-- Southeast Asia has the weakest profit margin DESPITE a $532,172 in revenue.
+- Southeast Asia has $532 k revenue but only $17 k profit with the lowest (3.3%) profit margin, reaching an almost "breaking even"
 ---
 ### Segmentation: CASE WHEN
 - Only 41 high performing products drive the majority of profit. A total of 674 products actively lose money which is ~ 7% of total product catalogue.
@@ -73,17 +83,6 @@ dim_location
 > Retaining top customers is critical. Losing one VIP will affect business significantly.
 
 > Business should focus on inventory reconciliation and strategy building during Feb and Jan months.
-
-
-## Technical Skills Demonstrated
-
-| Skill | Detail |
-|---|---|
-| Database Design | Star schema normalization with fact and dimension tables |
-| Customer & Product Segmentation | CASE WHEN classification logic |
-| Advanced SQL | CTEs, subqueries, LAG(), RANK(), DENSE_RANK() |
-| Data Pipeline Development | CSV ingestion, cleaning and database connection/load with pandas |
-| Exploratory Data Analysis | Profiling scale, range and quality of data |
 
 
 ## Repository Structure

@@ -1,5 +1,5 @@
+-- PROJECT: Sales & Profitability Analysis with SQL and Python 
 -- FILE: 01_database_setup.sql
--- PROJECT: SuperStore Sales Analytics with SQL and Python 
 -- OBJECT: This file documents the star schema built from the raw SuperStore CSV in the Jupyter notebook 01_load_data.ipynb
 -- AUTHOR: Faris Beg
 
@@ -15,7 +15,7 @@
 -- Dimension table: customers
 -- Primary key: customer_name
 CREATE TABLE "dim_customers" (
-"customer_name" TEXT,
+"customer_name" TEXT PRIMARY KEY NOT NULL,
   "segment" TEXT
 );
 
@@ -23,7 +23,7 @@ CREATE TABLE "dim_customers" (
 -- Dimension table: products
 -- Primary key: product_id
 CREATE TABLE "dim_products" (
-"product_id" TEXT,
+"product_id" TEXT PRIMARY KEY NOT NULL,
   "product_name" TEXT,
   "category" TEXT,
   "sub_category" TEXT
@@ -33,7 +33,7 @@ CREATE TABLE "dim_products" (
 -- Dimension table: locations
 -- Primary key: location_id (surrogate key — generated in the notebook)
 CREATE TABLE "dim_locations" (
-"location_id" INTEGER,
+"location_id" INTEGER PRIMARY KEY NOT NULL,
   "state" TEXT,
   "country" TEXT,
   "market" TEXT,
@@ -43,9 +43,10 @@ CREATE TABLE "dim_locations" (
 
 -- Fact table: orders
 -- One row per order line item
--- Foreign keys: customer_name → dim_customers
---               product_id   → dim_products
---               location_id  → dim_locations
+-- Foreign keys: customer_name -> dim_customers
+--               product_id   -> dim_products
+--               location_id  -> dim_locations
+
 CREATE TABLE "fact_orders" (
 "order_id" TEXT,
   "order_date" TEXT,
@@ -58,7 +59,10 @@ CREATE TABLE "fact_orders" (
   "shipping_cost" REAL,
   "order_priority" TEXT,
   "year" INTEGER,
-  "customer_name" TEXT,
-  "product_id" TEXT,
-  "location_id" INTEGER
+  "customer_name"  TEXT,   
+  "product_id"     TEXT,        
+  "location_id"    INTEGER,     
+  FOREIGN KEY ("customer_name") REFERENCES dim_customers("customer_name"),
+  FOREIGN KEY ("product_id")    REFERENCES dim_products("product_id"),
+  FOREIGN KEY ("location_id")   REFERENCES dim_locations("location_id") 
 );

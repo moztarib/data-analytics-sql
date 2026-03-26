@@ -8,32 +8,27 @@
 ------------------------------------------------------------------------------------------------------------------------------------
 -- NOTE: aliases cannot be used inside OVER() — SQL evaluates window functions
 --       before aliases are assigned, so the full expression must be repeated
-
-
+---------------------------------------------------------------------------------------------------------------------------------
 -- QUESTION: How does cumulative revenue build up month by month across all years to show overall business growth trajectory?
 -- SKILLS:   Window functions, SUM() OVER(), ORDER BY, DATE functions
 
 SELECT 
-
-ROUND(SUM (sales), 2) AS total_monthly_revenue, 
-
+    ROUND(SUM (sales), 2) AS total_monthly_revenue, 
 STRFTIME('%m', order_date) AS month_of_order,
 STRFTIME('%Y', order_date) AS year_of_order,
-
-ROUND(SUM(SUM(sales)) OVER  --inner SUM is the aggregate function for monthly total. Outer SUM is the total_running function adding each value subsequently.
+    ROUND(SUM(SUM(sales)) OVER  --inner SUM is the aggregate function for monthly total. Outer SUM is the total_running function adding each value subsequently.
                         (ORDER BY STRFTIME('%Y', order_date), STRFTIME('%m', order_date) --WE ARE SAYING THAT WE NEED TO ADD VALUES ON TOP OF EACH OTHER STARTING FROM LOWEST OF THE YEAR AND LOWEST OF THE MONTH AND BUILDING UP WITH INCREAsING.
                                          -- The window is like a moving avergae window.
                                          -- order by year always before order by month
-
 from fact_orders
-WHERE order_date IS NOT NULL --IMPORTANT
-GROUP BY year_of_order, month_of_order --Year must be grouped and ordered before month otherwise all the january for each year will appear first
+WHERE order_date IS NOT NULL --IMPORTANT!
+GROUP BY year_of_order, month_of_order --we group and order Year before month because otherwise all the january for each year will appear first
 ORDER BY year_of_order, month_of_order;    
 
 -- INSIGHT: Cumulative revenue grows consistently with no flat periods.
 --          Final running total of $7,835,128 confirms accuracy against total revenue from exploratory analysis.
 --          Steepest growth visible in 2013-2014 period.
-
+---------------------------------------------------------------------------------------------------------------------------------
 
 
 -- QUESTION: How does revenue accumulate within each individual year?
@@ -42,13 +37,10 @@ ORDER BY year_of_order, month_of_order;
 SELECT 
     STRFTIME('%Y', order_date) AS order_year,
     STRFTIME('%m', order_date) AS order_month,
-
     ROUND(SUM(sales), 2) AS total_monthly_revenue,
-
     ROUND(SUM(SUM(sales)) OVER 
                             (PARTITION BY STRFTIME('%Y', order_date)
                             ORDER BY STRFTIME('%m', order_date) ) , 2) AS running_total_per_year
-    
 from fact_orders
 WHERE order_date IS NOT NULL
 GROUP BY order_year, order_month

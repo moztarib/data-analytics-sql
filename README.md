@@ -16,13 +16,13 @@ Four questions drive this analysis: Which products and regions generate the most
 
 ## Project Overview
 
-51,290 sales transactions from a global retail business across 13 regions and four years (January 2011 to September 2014). The raw CSV is ingested via a Python pipeline, normalised into a star schema using pandas and SQLite, then interrogated with SQL from basic aggregations through to window functions and CTEs. The goal is findings a business can act on, not just syntax demonstration.
+51,290 sales transactions from a global retail business across 13 regions and four years (January 2011 to September 2014). The raw CSV is ingested via a Python pipeline, normalised into a star schema using pandas and SQLite, then interrogated with SQL from basic aggregations through to window functions and CTEs. The goal is to extract findings, using propoer syntax, that a business can act on.
 
 ---
 
 ## Tools and Technologies
 
-SQL (SQLite), Python, Jupyter Notebook, pandas, SQLAlchemy, ipython-sql, VS Code, Git and GitHub.
+SQL (SQLite), Python, Jupyter Notebook, pandas, Matplotlib, SQLAlchemy, ipython-sql, VS Code, Git and GitHub.
 
 ---
 

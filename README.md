@@ -68,7 +68,7 @@ Technology leads on margin at 25.16%. Furniture makes the second highest revenue
 
 Regionally, Central leads with $311,403 in profit. Southeast Asia generates $532,000 in revenue but retains only $17,852 in profit, a 3.3% margin that is barely break-even. EMEA has a similar pattern at 7.6%.
 
-Profit grew every year, with 2013 the strongest at 32.89% year-over-year growth. 2014 shows 23.41% growth across the year
+Profit grew every year from 2011 to 2014, reaching its highest level in 2014 at $504k. Growth rate (YoY growth rate) did slow slightly, from 32.89% in 2013 to 23.41% in 2014, but profit did not decline.
 
 Of 795 customers, 373 are VIP and 399 are Loyal. There are zero occasional customers, which strongly suggests a B2B business model where losing a single VIP has an outsized revenue impact.
 

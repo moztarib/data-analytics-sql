@@ -69,7 +69,8 @@ strftime('%Y', order_date) AS year_of_order
 
 from fact_orders
 
-WHERE month_of_order AND year_of_order IS NOT NULL
+WHERE order_date IS NOT NULL
+    
 GROUP BY year_of_order, month_of_order
 ORDER BY year_of_order ASC, month_of_order ASC; 
 

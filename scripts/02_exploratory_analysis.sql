@@ -27,6 +27,22 @@ SELECT
     ROUND (SUM(profit), 2) AS "total_profit",
     ROUND((SUM(profit)/SUM (sales))*100, 2) AS "%_profit_margin"
 FROM fact_orders;
+
+
+--*Another way of writing THE culculation part of this query: using CTE 'WITH AS' for an example case of using aliases of column names directly in calcualtions
+WITH totals AS 
+(    SELECT 
+        ROUND(SUM(sales),2) AS generated_revenue,
+        ROUND(SUM(profit),2) AS total_profit
+    FROM fact_orders )
+
+    SELECT 
+        ROUND(generated_revenue, 2) AS generated_revenue,
+        ROUND(total_profit, 2)      AS total_profit,
+        ROUND(total_profit / generated_revenue * 100, 2) AS "%_profit_margin"
+
+    FROM totals;
+
 -----------------------------------------------------------------------------------------------------------------------------
 -- QUESTION: Which REGIONS generate the most revenue and profit?
 -- SKILLS:   GROUP BY, ORDER BY, SUM, ROUND, JOIN

@@ -51,7 +51,7 @@ GROUP BY performance_segment
 ORDER BY number_of_products DESC;
 
 -- INSIGHT: Only 41 high performing products drive the majority of profit.
---          674 products actively lose money which is ~ 7% of total product catalogue.
+--          674 products actively lose money which is ~ 18% of total product catalogue.
 --          Business should review pricing or discontinue some products.
 ---------------------------------------------------------------------------------------------------------------------------------
 -- QUESTION: Which customers are VIP, Loyal, Regular or Occasional

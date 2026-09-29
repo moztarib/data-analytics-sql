@@ -23,11 +23,11 @@ WITH product_summary AS (
         MAX(f.order_date)            AS last_order
     FROM fact_orders f
     JOIN dim_products p ON f.product_id = p.product_id
-    GROUP BY p.product_name, p.product_category
+    GROUP BY p.product_name, p.category
 )
 SELECT
     product_name,
-    product_category,
+    category,
     sub_category,
     total_orders,
     total_revenue,

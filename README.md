@@ -16,7 +16,7 @@ Four questions drive this analysis: Which products and regions generate the most
 
 ## Project Overview
 
-51,290 sales transactions from a global retail business across 13 regions and four years (January 2011 to September 2014). The raw CSV is ingested via a Python pipeline, normalised into a star schema using pandas and SQLite, then interrogated with SQL from basic aggregations through to window functions and CTEs. The goal is to extract findings, using propoer syntax, that a business can act on.
+51,290 sales transactions from a global retail business across 13 regions and four years (January 2011 to 31 December 2014). The raw CSV is ingested via a Python pipeline, normalised into a star schema using pandas and SQLite, then interrogated with SQL from basic aggregations through to window functions and CTEs. The goal is to extract findings, using propoer syntax, that a business can act on.
 
 ---
 
@@ -68,7 +68,7 @@ Technology leads on margin at 25.16%. Furniture makes the second highest revenue
 
 Regionally, Central leads with $311,403 in profit. Southeast Asia generates $532,000 in revenue but retains only $17,852 in profit, a 3.3% margin that is barely break-even. EMEA has a similar pattern at 7.6%.
 
-Profit grew every year, with 2013 the strongest at 32.89% year-over-year growth. 2014 shows 23.41% growth across nine months only.
+Profit grew every year, with 2013 the strongest at 32.89% year-over-year growth. 2014 shows 23.41% growth across the year
 
 Of 795 customers, 373 are VIP and 399 are Loyal. There are zero occasional customers, which strongly suggests a B2B business model where losing a single VIP has an outsized revenue impact.
 

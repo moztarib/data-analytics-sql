@@ -35,8 +35,7 @@ ROUND((total_profit - previous_year_profit)/ (previous_year_profit) * 100, 2) AS
 
 FROM prev_year_profit;
 
--- INSIGHT: Profit grew to maximum during 2013 as the strongest year at 32.89% YoY growth and then suffered a hit reaching back 
---          to the levels similar to 2012, in 2014.
+-- INSIGHT: Profit growth rate was maximum during 2013 as the strongest YoY rate at 32.89% YoY growth. This is not the absolute profit but rate of increase cmpared to previous year.
 ---------------------------------------------------------------------------------------------------------------------------------
 -- QUESTION: What are the top 10 most profitable products ?
 -- SKILLS:   RANK(), window functions, JOIN, GROUP BY, CTE

@@ -18,7 +18,7 @@ STRFTIME('%m', order_date) AS month_of_order,
 STRFTIME('%Y', order_date) AS year_of_order,
     ROUND(SUM(SUM(sales)) OVER  --inner SUM is the aggregate function for monthly total. Outer SUM is the total_running function adding each value subsequently.
                         (ORDER BY STRFTIME('%Y', order_date), STRFTIME('%m', order_date) --WE ARE SAYING THAT WE NEED TO ADD VALUES ON TOP OF EACH OTHER STARTING FROM LOWEST OF THE YEAR AND LOWEST OF THE MONTH AND BUILDING UP WITH INCREAsING.
-                                         -- The window is like a moving avergae window.
+                                         -- The window is like a moving avergae window so "cumulative running total".
                                          -- order by year always before order by month
 from fact_orders
 WHERE order_date IS NOT NULL --IMPORTANT!
@@ -51,6 +51,6 @@ ORDER BY order_year, order_month;
 --       we begin at the beginning of each year and keep adding more values as the months increase.
 
 -- INSIGHT: Annual revenue grows significantly each year.
---          2011 closed at $1.37M, 2014 reached $2.67M by September only.
+--          2011 closed at $1.37M, 2014 reached $2.67M by end of the yea.
 --          Each year the running total accelerates faster. Business is scaling.
  
